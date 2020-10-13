@@ -1,0 +1,61 @@
+{
+    "spec": {
+        "inputs": {
+            "input_image": {
+                "type:file": {
+                    "format": [
+                        "tiff"
+                    ]
+                }
+            },
+            "exclude_Edge_Particles": {
+                "type:choice_binary": null,
+                "default" : true
+            }
+        },
+        "outputs": {
+            "binarized": {
+                "type:file": {
+                    "format": [
+                        "tiff"
+                    ]
+                }
+            },            
+            "particleAnalysis_results": {
+                "type:file": {
+                    "format": [
+                        "csv"
+                    ]
+                }
+            }         
+        }
+    },
+    "ui": {
+        "inputs": {
+            "input_image": {
+                "index": 1,
+                "label": "",
+                "widget:none": null,
+                "description": "the input image to be measured"
+            },
+            "exclude_Edge_Particles": {
+                "index": 2,
+                "label": "Exclude edge particles",
+                "widget:checkbox": {},
+                "description": "Exclude objects touching edge from measurements"
+            }
+        },
+        "outputs": {
+            "binarized": {
+                "index": 1,
+                "label": "Binarized Image",
+                "description": "Intensity Thresholded Image (Otsu)"
+            },
+            "particleAnalysis_results": {
+                "index": 2,
+                "label": "Particle Analysis Results",
+                "description": "CSV file with measurement results"
+            }          
+        }
+    }
+}
