@@ -1,16 +1,12 @@
 /*
-  ImageJ macro with Extended Macro Functions, and example
-  
-  MIT License
-  Copyright (c) 2020 Kota Miura
+  ImageJ Macro Extension or APEER, Example code
+  MIT License, Copyright (c) 2020 Kota Miura
  */
-
 //========= preamble ======= 
 //install Macro Extensions for APEER environment
 run("APEER MacroExtensions");
 
 //set path to local WFE parameter file
-//(for local testing)
 wfeparam_path = "/params/WFE_input_params.json";
 Ext.setWFE_Input_FilePath( wfeparam_path );
 
@@ -21,9 +17,9 @@ Ext.shout( wfejson );
 //=== set parameters ===
 inputdir = "/input/";
 outputdir = "/output/";
-
 INPUT_IMAGE = Ext.getValue("input_image");
 excludeEdgeParticles = Ext.getValue("exclude_Edge_Particles");
+JSONOUT_NAME = Ext.getValue("WFE_output_params_file");
 
 //========= open image ======= 
 Ext.shout( "Open: " + INPUT_IMAGE );
@@ -43,19 +39,17 @@ run("Analyze Particles...", opt);
 //save binary image data
 selectImage( orgID );
 outputFileKey = "binarized";
-outputName = outputFileKey + ".tif";
-outfullpath = outputdir + outputName;
+outfullpath = outputdir + utputFileKey + ".tif";
 Ext.saveTiffAPEER(outputFileKey, outfullpath);
 Ext.shout("...saved: " + outfullpath );
 
 //save analysis results data
 outputResultFileKey = "particleAnalysis_results";
-outResultsfullpath = outputdir + outputTablename;
+outResultsfullpath = outputdir + outputResultFileKey + ".csv";
 Ext.saveResultsAPEER( outputResultFileKey, outResultsfullpath);
 Ext.shout("...saved: " + outResultsfullpath );
 
 //=== saving WFE JSON out ===
-JSONOUT_NAME = Ext.getValue("WFE_output_params_file");
 Ext.saveJSON_OUT( outputdir + JSONOUT_NAME);
 Ext.shout("...saved: " + JSONOUT_NAME);
 Ext.shout("JOB DONE.");

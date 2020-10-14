@@ -49,6 +49,7 @@
             "binarized": {
                 "index": 1,
                 "label": "Binarized Image",
+                
                 "description": "Intensity Thresholded Image (Otsu)"
             },
             "particleAnalysis_results": {
