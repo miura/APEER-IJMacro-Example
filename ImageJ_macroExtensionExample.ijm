@@ -18,6 +18,7 @@ Ext.shout( wfejson );
 inputdir = "/input/";
 outputdir = "/output/";
 INPUT_IMAGE = Ext.getValue("input_image");
+INPUT_IMAGE = inputdir + INPUT_IMAGE
 excludeEdgeParticles = Ext.getValue("exclude_Edge_Particles");
 JSONOUT_NAME = Ext.getValue("WFE_output_params_file");
 
@@ -39,7 +40,7 @@ run("Analyze Particles...", opt);
 //save binary image data
 selectImage( orgID );
 outputFileKey = "binarized";
-outfullpath = outputdir + utputFileKey + ".tif";
+outfullpath = outputdir + outputFileKey + ".tif";
 Ext.saveTiffAPEER(outputFileKey, outfullpath);
 Ext.shout("...saved: " + outfullpath );
 

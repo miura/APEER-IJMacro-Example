@@ -34,7 +34,7 @@ COPY ./*.ijm /
 COPY ./start.sh /
 COPY ./font.conf /etc/fonts/fonts.conf
 #COPY ./Apeer_MacroExt* /Fiji.app/plugins
-ADD https://github.com/miura/APEER_MacroExtension/releases/download/v0.2.0/Apeer_MacroExt-0.2.0-SNAPSHOT.jar /Fiji.app/plugins/
+ADD https://github.com/miura/APEER_MacroExtension/releases/download/v0.2.1/Apeer_MacroExt-0.2.1-SNAPSHOT.jar /Fiji.app/plugins/
 COPY ./module_specification.json .
 
 VOLUME [ "/input", "/output", "/params" ]
